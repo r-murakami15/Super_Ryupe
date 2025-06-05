@@ -18,9 +18,6 @@ Super_RyupeはGodot Engineで開発された2Dアクションゲームです。�
 ### ゲームはこちらでプレイできます。
 [GodotPlayer(β) - スーパーりゅーペ](https://godotplayer.com/games/super_ryupe)
 
-<div>
-    <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">しっかり完成させたぞう！<br>いろんなギミックを盛り込んでみました！ <a href="https://t.co/FnCMi26xXt">pic.twitter.com/FnCMi26xXt</a></p>&mdash; りゅーぺ(もじもじ) (@ryucraft343) <a href="https://twitter.com/ryucraft343/status/1930652101312667974?ref_src=twsrc%5Etfw">June 5, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
 
 ## 操作方法
 
