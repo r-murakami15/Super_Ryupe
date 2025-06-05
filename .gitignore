@@ -25,7 +25,7 @@ mono_crash.*.json
 
 ### Other ###
 # Godot
-/output/
+/builds/
 
 # VSCode
 .vscode
