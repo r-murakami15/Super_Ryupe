@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmjrw6yf1rprd"]
+
+[ext_resource type="Script" uid="uid://6ygd2vsdvrh" path="res://component/background/background.gd" id="1_pesyb"]
+[ext_resource type="Texture2D" uid="uid://b8mqp5kg1qyfm" path="res://assets/img/Background/Green.png" id="2_ewwm8"]
+[ext_resource type="Texture2D" uid="uid://cjdfys0rqooiv" path="res://assets/img/Background/Gray.png" id="2_rsf5d"]
+
+[sub_resource type="GDScript" id="GDScript_rsf5d"]
+script/source = "extends ParallaxLayer
+"
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_pesyb")
+bg_texture = ExtResource("2_ewwm8")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 640)
+script = SubResource("GDScript_rsf5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_rsf5d")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)

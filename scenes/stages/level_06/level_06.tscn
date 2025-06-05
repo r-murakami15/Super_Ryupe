@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=4 uid="uid://vorcq57p56fu"]
+
+[ext_resource type="PackedScene" uid="uid://d0t77bgel2mgx" path="res://scenes/stages/level_base/level_base.tscn" id="1_nap6e"]
+[ext_resource type="PackedScene" uid="uid://o055exaft57m" path="res://component/traps/fan/fan.tscn" id="2_q7m56"]
+
+[node name="Level06" instance=ExtResource("1_nap6e")]
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAP//AAAHAAEAAAAAAP7/AAAHAAEAAAAAAP3/AAAHAAEAAAAnAP//AAAHAAEAAAAnAP7/AAAHAAEAAAAnAP3/AAAHAAEAAAAAAPz/AAAHAAEAAAAAAPv/AAAHAAEAAAAAAPr/AAAHAAEAAAAAAPn/AAAHAAEAAAAAAPj/AAAHAAEAAAAAAPf/AAAHAAEAAAAAAPb/AAAHAAEAAAAAAPX/AAAHAAEAAAAAAPT/AAAHAAEAAAAAAPP/AAAHAAEAAAAAAPL/AAAHAAEAAAAAAPH/AAAHAAEAAAAAAPD/AAAHAAEAAAAAAO//AAAHAAEAAAAAAO7/AAAHAAEAAAAAAO3/AAAHAAEAAAAAAOz/AAAHAAEAAAAAAOv/AAAHAAAAAAAnAPr/AAAHAAEAAAAnAPn/AAAHAAEAAAAnAPj/AAAHAAEAAAAnAPf/AAAHAAEAAAAnAPb/AAAHAAEAAAAnAPX/AAAHAAEAAAAnAPT/AAAHAAEAAAAnAPP/AAAHAAEAAAAnAPL/AAAHAAEAAAAnAPH/AAAHAAEAAAAnAPD/AAAHAAEAAAAnAO//AAAHAAEAAAAnAO7/AAAHAAEAAAAnAO3/AAAHAAEAAAAnAOz/AAAHAAEAAAAnAOv/AAAHAAAAAAAnAPv/AAAHAAEAAAAnAPz/AAAHAAEAAAA=")
+
+[node name="Player" parent="." index="2"]
+position = Vector2(77, -274)
+
+[node name="Start" parent="." index="3"]
+position = Vector2(66, -250)
+
+[node name="Goal" parent="." index="4"]
+position = Vector2(406, -249)
+
+[node name="Fan" parent="." index="7" instance=ExtResource("2_q7m56")]
+position = Vector2(130, -230)
+
+[node name="Fan2" parent="." index="8" instance=ExtResource("2_q7m56")]
+position = Vector2(180, -180)
+
+[node name="Fan3" parent="." index="9" instance=ExtResource("2_q7m56")]
+position = Vector2(230, -130)
+
+[node name="Fan4" parent="." index="10" instance=ExtResource("2_q7m56")]
+position = Vector2(280, -180)
+
+[node name="Fan5" parent="." index="11" instance=ExtResource("2_q7m56")]
+position = Vector2(330, -230)

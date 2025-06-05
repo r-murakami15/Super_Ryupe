@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=4 uid="uid://bse2gohs7eqeg"]
+
+[ext_resource type="Script" uid="uid://ckqn110xe238e" path="res://scenes/main/main.gd" id="1_f2phm"]
+[ext_resource type="LabelSettings" uid="uid://cu7f28kjpxj10" path="res://assets/fonts/tres/title.tres" id="2_e08oy"]
+[ext_resource type="PackedScene" uid="uid://dmjrw6yf1rprd" path="res://component/background/background.tscn" id="2_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://dci02do15ju0l" path="res://component/camera/camera.tscn" id="3_6q06x"]
+[ext_resource type="TileSet" uid="uid://cx8m2r0wktobj" path="res://assets/img/tilemap/tilemap.tres" id="3_hujxm"]
+[ext_resource type="FontFile" uid="uid://ciuqk77btj47" path="res://assets/fonts/ZenMaruGothic-Black.ttf" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://btj2hnkocljwk" path="res://component/player/player.tscn" id="6_ow5a4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_f2phm")
+
+[node name="Background" parent="." instance=ExtResource("2_l3cfh")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAPr/AAAHAAAAAAAIAPv/AAAHAAEAAAAJAPr/AAAHAAAAAAAJAPv/AAAHAAEAAAAKAPr/AAAHAAAAAAAKAPv/AAAHAAEAAAA=")
+tile_set = ExtResource("3_hujxm")
+
+[node name="Camera" parent="." instance=ExtResource("3_6q06x")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -182.0
+offset_right = 529.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Super Ryupe Brothers"
+label_settings = ExtResource("2_e08oy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -270.0
+offset_right = 175.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_l3cfh")
+theme_override_font_sizes/font_size = 50
+text = "はじめる"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.5
+offset_top = -55.0
+offset_right = 104.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_l3cfh")
+theme_override_font_sizes/font_size = 16
+text = "create by Ryupe15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("6_ow5a4")]
+position = Vector2(151, -174)

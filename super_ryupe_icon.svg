@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- 背景グラデーション（空のイメージ） -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#98D8F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8E6FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- キャラクターのグラデーション -->
+    <radialGradient id="characterGradient" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#FFE5B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- 影 -->
+    <radialGradient id="shadowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- プラットフォームのグラデーション -->
+    <linearGradient id="platformGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="512" height="512" fill="url(#skyGradient)" rx="64" ry="64"/>
+  
+  <!-- 雲 -->
+  <g opacity="0.7">
+    <ellipse cx="100" cy="80" rx="25" ry="15" fill="white"/>
+    <ellipse cx="120" cy="75" rx="30" ry="18" fill="white"/>
+    <ellipse cx="140" cy="80" rx="20" ry="12" fill="white"/>
+    
+    <ellipse cx="350" cy="120" rx="20" ry="12" fill="white"/>
+    <ellipse cx="370" cy="115" rx="25" ry="15" fill="white"/>
+    <ellipse cx="390" cy="120" rx="18" ry="10" fill="white"/>
+  </g>
+  
+  <!-- 地面のプラットフォーム -->
+  <rect x="50" y="400" width="150" height="30" fill="url(#platformGradient)" rx="15"/>
+  <rect x="300" y="350" width="120" height="30" fill="url(#platformGradient)" rx="15"/>
+  <rect x="180" y="300" width="100" height="30" fill="url(#platformGradient)" rx="15"/>
+  
+  <!-- スパイクトラップ -->
+  <g transform="translate(320, 380)">
+    <polygon points="0,20 10,0 20,20" fill="#666666"/>
+    <polygon points="20,20 30,0 40,20" fill="#666666"/>
+    <polygon points="40,20 50,0 60,20" fill="#666666"/>
+  </g>
+  
+  <!-- ファン（風のエフェクト） -->
+  <g transform="translate(400, 320)" opacity="0.6">
+    <path d="M 0,0 Q 10,-5 20,0 Q 10,5 0,0" fill="#ADD8E6" opacity="0.5"/>
+    <path d="M 5,-10 Q 15,-15 25,-10 Q 15,-5 5,-10" fill="#87CEEB" opacity="0.7"/>
+    <path d="M 5,10 Q 15,15 25,10 Q 15,5 5,10" fill="#87CEEB" opacity="0.7"/>
+  </g>
+  
+  <!-- キャラクター「りゅーぺ」の影 -->
+  <ellipse cx="258" cy="380" rx="35" ry="8" fill="url(#shadowGradient)"/>
+  
+  <!-- キャラクター「りゅーぺ」 -->
+  <g transform="translate(256, 300)">
+    <!-- 体 -->
+    <ellipse cx="0" cy="40" rx="28" ry="35" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    
+    <!-- 頭 -->
+    <circle cx="0" cy="0" r="32" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    
+    <!-- 目 -->
+    <circle cx="-12" cy="-8" r="6" fill="white"/>
+    <circle cx="12" cy="-8" r="6" fill="white"/>
+    <circle cx="-12" cy="-8" r="3" fill="black"/>
+    <circle cx="12" cy="-8" r="3" fill="black"/>
+    
+    <!-- 口 -->
+    <path d="M -8,8 Q 0,15 8,8" stroke="black" stroke-width="2" fill="none"/>
+    
+    <!-- 手 -->
+    <circle cx="-35" cy="25" r="12" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    <circle cx="35" cy="30" r="12" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    
+    <!-- 足 -->
+    <ellipse cx="-15" cy="70" rx="10" ry="15" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    <ellipse cx="15" cy="70" rx="10" ry="15" fill="url(#characterGradient)" stroke="#FFA500" stroke-width="2"/>
+    
+    <!-- 跳躍エフェクト -->
+    <g opacity="0.6">
+      <circle cx="-20" cy="85" r="3" fill="#FFD700" opacity="0.8"/>
+      <circle cx="20" cy="85" r="3" fill="#FFD700" opacity="0.8"/>
+      <circle cx="0" cy="90" r="2" fill="#FFD700" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- ゴールフラッグ -->
+  <g transform="translate(420, 250)">
+    <!-- ポール -->
+    <rect x="0" y="0" width="4" height="100" fill="#8B4513"/>
+    <!-- フラッグ -->
+    <polygon points="4,0 4,30 40,15" fill="#FF6B6B"/>
+    <!-- フラッグの模様 -->
+    <circle cx="22" cy="15" r="5" fill="white"/>
+    <text x="22" y="19" text-anchor="middle" fill="#FF6B6B" font-size="8" font-weight="bold">G</text>
+  </g>
+  
+  <!-- タイトル部分 -->
+  <g transform="translate(256, 450)">
+    <rect x="-120" y="-25" width="240" height="50" fill="rgba(255,255,255,0.9)" rx="25" stroke="#FFD700" stroke-width="3"/>
+    <text x="0" y="-5" text-anchor="middle" fill="#FF6B35" font-size="24" font-weight="bold" font-family="sans-serif">SUPER</text>
+    <text x="0" y="15" text-anchor="middle" fill="#4169E1" font-size="20" font-weight="bold" font-family="sans-serif">RYUPE</text>
+  </g>
+  
+  <!-- 星のキラキラエフェクト -->
+  <g opacity="0.8">
+    <g transform="translate(80, 200) rotate(45)">
+      <polygon points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" fill="#FFD700"/>
+    </g>
+    <g transform="translate(380, 180) rotate(30)">
+      <polygon points="0,-6 1.5,-1.5 6,0 1.5,1.5 0,6 -1.5,1.5 -6,0 -1.5,-1.5" fill="#FFD700"/>
+    </g>
+    <g transform="translate(450, 280) rotate(60)">
+      <polygon points="0,-5 1,-1 5,0 1,1 0,5 -1,1 -5,0 -1,-1" fill="#FFD700"/>
+    </g>
+  </g>
+</svg>

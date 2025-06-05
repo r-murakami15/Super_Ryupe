@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=4 uid="uid://8sr11h201qb7"]
+
+[ext_resource type="PackedScene" uid="uid://d0t77bgel2mgx" path="res://scenes/stages/level_base/level_base.tscn" id="1_64efh"]
+[ext_resource type="PackedScene" uid="uid://dwwlwjg441flb" path="res://component/blocks/block/block.tscn" id="2_ih1w7"]
+[ext_resource type="PackedScene" uid="uid://tfau5tmieewh" path="res://component/traps/spike/spike.tscn" id="3_ih1w7"]
+
+[node name="Level_02" instance=ExtResource("1_64efh")]
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAlAP//AAAHAAEAAAAlAP7/AAAHAAEAAAAlAP3/AAAHAAAAAAAkAP//AAAHAAEAAAAkAP7/AAAHAAEAAAAkAP3/AAAHAAAAAAAjAP//AAAHAAEAAAAjAP7/AAAHAAEAAAAjAP3/AAAHAAAAAAAiAP//AAAHAAEAAAAiAP7/AAAHAAEAAAAiAP3/AAAHAAAAAAAhAP//AAAHAAEAAAAhAP7/AAAHAAEAAAAhAP3/AAAHAAAAAAAgAP//AAAHAAEAAAAgAP7/AAAHAAEAAAAgAP3/AAAHAAAAAAAFAP//AAAHAAEAAAAFAP7/AAAHAAEAAAAFAP3/AAAHAAAAAAAEAP//AAAHAAEAAAAEAP7/AAAHAAEAAAAEAP3/AAAHAAAAAAADAP//AAAHAAEAAAADAP7/AAAHAAEAAAADAP3/AAAHAAAAAAABAP//AAAHAAEAAAABAP7/AAAHAAEAAAABAP3/AAAHAAAAAAAAAP//AAAHAAEAAAAAAP7/AAAHAAEAAAAAAP3/AAAJAAEAAAACAP//AAAHAAEAAAACAP7/AAAHAAEAAAACAP3/AAAHAAAAAAAnAP//AAAHAAEAAAAnAP7/AAAHAAEAAAAnAP3/AAAKAAEAAAAmAP//AAAHAAEAAAAmAP7/AAAHAAEAAAAmAP3/AAAHAAAAAAAAAPz/AAAHAAEAAAAAAPv/AAAHAAEAAAAAAPr/AAAHAAEAAAAAAPn/AAAHAAEAAAAAAPj/AAAHAAEAAAAAAPf/AAAHAAEAAAAAAPb/AAAHAAEAAAAAAPX/AAAHAAEAAAAAAPT/AAAHAAEAAAAAAPP/AAAHAAEAAAAAAPL/AAAHAAEAAAAAAPH/AAAHAAEAAAAAAPD/AAAHAAEAAAAAAO//AAAHAAEAAAAAAO7/AAAHAAEAAAAAAO3/AAAHAAEAAAAAAOz/AAAHAAEAAAAAAOv/AAAHAAAAAAAnAPr/AAAHAAEAAAAnAPn/AAAHAAEAAAAnAPj/AAAHAAEAAAAnAPf/AAAHAAEAAAAnAPb/AAAHAAEAAAAnAPX/AAAHAAEAAAAnAPT/AAAHAAEAAAAnAPP/AAAHAAEAAAAnAPL/AAAHAAEAAAAnAPH/AAAHAAEAAAAnAPD/AAAHAAEAAAAnAO//AAAHAAEAAAAnAO7/AAAHAAEAAAAnAO3/AAAHAAEAAAAnAOz/AAAHAAEAAAAnAOv/AAAHAAAAAAAnAPv/AAAHAAEAAAAnAPz/AAAHAAEAAAA=")
+
+[node name="Goal" parent="." index="4"]
+position = Vector2(592, -48)
+
+[node name="block01" parent="." index="7" instance=ExtResource("2_ih1w7")]
+position = Vector2(152, -64)
+distance = Vector2(50, 0)
+time = 2.0
+
+[node name="block02" parent="." index="8" instance=ExtResource("2_ih1w7")]
+position = Vector2(200, -64)
+distance = Vector2(50, 0)
+time = 2.0
+
+[node name="Spike01" parent="block02" index="4" instance=ExtResource("3_ih1w7")]
+position = Vector2(0, -16)
+
+[node name="block03" parent="." index="9" instance=ExtResource("2_ih1w7")]
+position = Vector2(400, -64)
+distance = Vector2(-50, 0)
+time = 2.0
+
+[node name="block04" parent="." index="10" instance=ExtResource("2_ih1w7")]
+position = Vector2(448, -64)
+distance = Vector2(-50, 0)
+time = 2.0
+
+[node name="Spike2" parent="block04" index="4" instance=ExtResource("3_ih1w7")]
+position = Vector2(0, -16)

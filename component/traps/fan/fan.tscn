@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://o055exaft57m"]
+
+[ext_resource type="Script" uid="uid://dgx7lvulpoo2x" path="res://component/traps/fan/fan.gd" id="1_bpqx0"]
+[ext_resource type="Texture2D" uid="uid://b213yyk45d15r" path="res://assets/img/Traps/Fan/Off.png" id="1_kkhjs"]
+[ext_resource type="Texture2D" uid="uid://b0enbboxnbtdo" path="res://assets/img/Traps/Fan/On (24x8).png" id="2_bpqx0"]
+[ext_resource type="Texture2D" uid="uid://ch10o6ug8txox" path="res://assets/img/Other/Dust Particle.png" id="4_72ugm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oagol"]
+atlas = ExtResource("2_bpqx0")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81rgk"]
+atlas = ExtResource("2_bpqx0")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03mr"]
+atlas = ExtResource("2_bpqx0")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l8xr"]
+atlas = ExtResource("2_bpqx0")
+region = Rect2(72, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0vrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kkhjs")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oagol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81rgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x03mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l8xr")
+}],
+"loop": true,
+"name": &"on",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_se4af"]
+size = Vector2(20, 72)
+
+[sub_resource type="GDScript" id="GDScript_72ugm"]
+script/source = "extends CollisionShape2D
+"
+
+[sub_resource type="Curve" id="Curve_uuh72"]
+_limits = [0.0, 0.5, 0.0, 1.0]
+_data = [Vector2(0.132492, 0.326877), 0.0, 0.0, 0, 0, Vector2(0.501577, 0.385896), 0.0, 0.0, 0, 0, Vector2(0.826498, 0.256053), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Fan" type="Area2D" groups=["trap"]]
+collision_layer = 2
+script = ExtResource("1_bpqx0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i0vrf")
+animation = &"on"
+autoplay = "on"
+frame_progress = 0.626727
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.68496e-06, -28)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_se4af")
+script = SubResource("GDScript_72ugm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -64.0
+offset_right = 10.0
+color = Color(0.590057, 0.690655, 0.903737, 0.333333)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("4_72ugm")
+lifetime = 0.4
+emission_shape = 1
+emission_sphere_radius = 10.5
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+scale_amount_curve = SubResource("Curve_uuh72")
+color = Color(0.659182, 0.851332, 0.942754, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2shtu74ykrfq"]
+
+[ext_resource type="Script" uid="uid://butrit5h5qvxv" path="res://component/hud/hud.gd" id="1_48c2t"]
+[ext_resource type="LabelSettings" uid="uid://cu7f28kjpxj10" path="res://assets/fonts/tres/title.tres" id="2_c45xl"]
+[ext_resource type="LabelSettings" uid="uid://dhgovfb20vkku" path="res://assets/fonts/tres/sub_title.tres" id="3_0bx4p"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48c2t")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Congraturations!"
+label_settings = ExtResource("2_c45xl")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Press Space or ○ to Menu"
+label_settings = ExtResource("3_0bx4p")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://6h3p05ryeey"]
+
+[ext_resource type="PackedScene" uid="uid://d0t77bgel2mgx" path="res://scenes/stages/level_base/level_base.tscn" id="1_bhpb5"]
+[ext_resource type="PackedScene" uid="uid://o055exaft57m" path="res://component/traps/fan/fan.tscn" id="2_agudl"]
+
+[node name="Level05" instance=ExtResource("1_bhpb5")]
+
+[node name="Goal" parent="." index="4"]
+position = Vector2(370, -252)
+
+[node name="Fan" parent="." index="7" instance=ExtResource("2_agudl")]
+position = Vector2(170, -52)
+
+[node name="Fan2" parent="." index="8" instance=ExtResource("2_agudl")]
+position = Vector2(220, -102)
+
+[node name="Fan3" parent="." index="9" instance=ExtResource("2_agudl")]
+position = Vector2(270, -152)
+
+[node name="Fan4" parent="." index="10" instance=ExtResource("2_agudl")]
+position = Vector2(320, -202)
