@@ -6,8 +6,8 @@ var previous_position: Vector2  # 前フレームの位置（移動量計算用�
 func _ready() -> void:
 	previous_position = position  # 前フレーム位置も初期化
 
-func _physics_process(delta):
-	"""プレイヤーの同期移動処理"""
+# プレイヤーの同期移動処理 (この関数は1秒間に必ず60回実行される)
+func _physics_process(_delta: float):
 	# ブロックの移動量を計算
 	var movement_delta = position - previous_position
 	
