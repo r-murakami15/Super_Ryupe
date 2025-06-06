@@ -16,6 +16,7 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 # ノードの参照
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player_label: Label = $VBoxContainer/PlayerLabel
+@onready var dust: CPUParticles2D = $Dust
 
 # 移動関連の設定
 @export_group("move")
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	apply_movement(delta)  # 移動の適用
 	move_and_slide()  # スライドしながら移動
 	update_state()  # 状態の更新
+	apply_effect()
 
 # 重力を適用
 func apply_gravity(delta: float):
@@ -157,6 +159,12 @@ func set_state(new_state: PLAYER_STATE):
 			animated_sprite_2d.play("jump")
 		PLAYER_STATE.FALL:
 			animated_sprite_2d.play("fall")
+
+func apply_effect():
+	if state == PLAYER_STATE.RUN:
+		dust.emitting = true
+	else:
+		dust.emitting = false
 
 func send_player(message = null):
 	if message == null:

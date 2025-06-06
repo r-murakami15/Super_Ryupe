@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://btj2hnkocljwk"]
+[gd_scene load_steps=49 format=3 uid="uid://btj2hnkocljwk"]
 
 [ext_resource type="Texture2D" uid="uid://cyr1o6d1p7u22" path="res://assets/img/Main Characters/Ninja Frog/Fall (32x32).png" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://bjqvw6nkb5gdm" path="res://component/player/player.gd" id="1_p47bc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://chry3xmyrebsi" path="res://assets/img/Main Characters/Ninja Frog/Run (32x32).png" id="4_0owmy"]
 [ext_resource type="Texture2D" uid="uid://dtqwhvbsuuo3i" path="res://assets/img/Main Characters/Ninja Frog/Wall Jump (32x32).png" id="7_0owmy"]
 [ext_resource type="FontFile" uid="uid://ciuqk77btj47" path="res://assets/fonts/ZenMaruGothic-Black.ttf" id="8_qek5x"]
+[ext_resource type="Texture2D" uid="uid://ch10o6ug8txox" path="res://assets/img/Other/Dust Particle.png" id="9_j8swj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tffgl"]
 atlas = ExtResource("3_0owmy")
@@ -340,6 +341,22 @@ text = "りゅーぺ"
 label_settings = SubResource("LabelSettings_p47bc")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Dust" type="CPUParticles2D" parent="."]
+position = Vector2(0, 15)
+emitting = false
+amount = 10
+texture = ExtResource("9_j8swj")
+lifetime = 0.2
+randomness = 0.26
+lifetime_randomness = 0.77
+emission_shape = 1
+emission_sphere_radius = 2.5
+spread = 65.24
+gravity = Vector2(0, -200)
+scale_amount_min = 0.5
+scale_amount_max = 0.6
+color = Color(0.912289, 0.912289, 0.912289, 1)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
