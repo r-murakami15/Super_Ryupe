@@ -2,37 +2,23 @@
 
 [ext_resource type="TileSet" uid="uid://cx8m2r0wktobj" path="res://assets/img/tilemap/tilemap.tres" id="1_86bhf"]
 [ext_resource type="Script" uid="uid://cqytvkeu1042u" path="res://component/blocks/block/block.gd" id="1_pfun8"]
-[ext_resource type="PackedScene" uid="uid://dci02do15ju0l" path="res://component/camera/camera.tscn" id="3_vd146"]
+[ext_resource type="PackedScene" uid="uid://bk5x44ih6cvhi" path="res://component/mover/mover.tscn" id="3_ephhf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd146"]
 size = Vector2(48, 9)
 
-[node name="block" type="Node2D"]
+[node name="block" type="Area2D"]
 script = ExtResource("1_pfun8")
-is_move = true
-distance = Vector2(200, 0)
-time = 5.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 12, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 13, 0, 0, 0, 0, 0, 2, 0, 255, 255, 0, 0, 14, 0, 0, 0, 0, 0)
 tile_set = ExtResource("1_86bhf")
 
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-position = Vector2(24, -8)
-points = PackedVector2Array(0, 0, 100, 0)
-width = 1.0
-texture_mode = 1
-
-[node name="Camera" parent="." instance=ExtResource("3_vd146")]
-visible = false
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24, -18.5)
 shape = SubResource("RectangleShape2D_vd146")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="Mover" parent="." instance=ExtResource("3_ephhf")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

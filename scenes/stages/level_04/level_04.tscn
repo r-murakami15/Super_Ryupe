@@ -19,10 +19,15 @@ position = Vector2(605, -288)
 
 [node name="block" parent="." index="7" instance=ExtResource("2_8vpvw")]
 position = Vector2(232, -230)
+
+[node name="Mover" parent="block" index="2"]
 distance = Vector2(0, 150)
-time = 2.5
 
 [node name="block2" parent="." index="8" instance=ExtResource("2_8vpvw")]
 position = Vector2(512, -264)
+
+[node name="Mover" parent="block2" index="2"]
 distance = Vector2(-150, 130)
-time = 2.5
+
+[editable path="block"]
+[editable path="block2"]

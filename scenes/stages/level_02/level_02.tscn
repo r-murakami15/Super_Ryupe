@@ -14,26 +14,35 @@ position = Vector2(592, -48)
 
 [node name="block01" parent="." index="7" instance=ExtResource("2_ih1w7")]
 position = Vector2(152, -64)
+
+[node name="Mover" parent="block01" index="2"]
 distance = Vector2(50, 0)
-time = 2.0
 
 [node name="block02" parent="." index="8" instance=ExtResource("2_ih1w7")]
 position = Vector2(200, -64)
-distance = Vector2(50, 0)
-time = 2.0
 
-[node name="Spike01" parent="block02" index="4" instance=ExtResource("3_ih1w7")]
+[node name="Spike01" parent="block02" index="2" instance=ExtResource("3_ih1w7")]
 position = Vector2(0, -16)
+
+[node name="Mover" parent="block02" index="3"]
+distance = Vector2(50, 0)
 
 [node name="block03" parent="." index="9" instance=ExtResource("2_ih1w7")]
 position = Vector2(400, -64)
+
+[node name="Mover" parent="block03" index="2"]
 distance = Vector2(-50, 0)
-time = 2.0
 
 [node name="block04" parent="." index="10" instance=ExtResource("2_ih1w7")]
 position = Vector2(448, -64)
-distance = Vector2(-50, 0)
-time = 2.0
 
-[node name="Spike2" parent="block04" index="4" instance=ExtResource("3_ih1w7")]
+[node name="Spike2" parent="block04" index="2" instance=ExtResource("3_ih1w7")]
 position = Vector2(0, -16)
+
+[node name="Mover" parent="block04" index="3"]
+distance = Vector2(-50, 0)
+
+[editable path="block01"]
+[editable path="block02"]
+[editable path="block03"]
+[editable path="block04"]

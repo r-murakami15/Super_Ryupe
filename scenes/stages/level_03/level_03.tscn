@@ -14,23 +14,27 @@ position = Vector2(601, -175)
 
 [node name="block" parent="." index="7" instance=ExtResource("2_bvgew")]
 position = Vector2(200, -125)
+
+[node name="Mover" parent="block" index="2"]
 distance = Vector2(0, 60)
-time = 2.0
 
 [node name="block2" parent="." index="8" instance=ExtResource("2_bvgew")]
 position = Vector2(100, -150)
+
+[node name="Mover" parent="block2" index="2"]
 distance = Vector2(0, -60)
-time = 2.0
 
 [node name="block3" parent="." index="9" instance=ExtResource("2_bvgew")]
 position = Vector2(200, -300)
+
+[node name="Mover" parent="block3" index="2"]
 distance = Vector2(0, 60)
-time = 2.0
 
 [node name="block4" parent="." index="10" instance=ExtResource("2_bvgew")]
 position = Vector2(400, -130)
+
+[node name="Mover" parent="block4" index="2"]
 distance = Vector2(0, -60)
-time = 2.0
 
 [node name="Spike" parent="." index="11" instance=ExtResource("3_bsx6d")]
 position = Vector2(320, -48)
@@ -58,3 +62,8 @@ position = Vector2(544, -48)
 
 [node name="Spike9" parent="." index="19" instance=ExtResource("3_bsx6d")]
 position = Vector2(560, -48)
+
+[editable path="block"]
+[editable path="block2"]
+[editable path="block3"]
+[editable path="block4"]
