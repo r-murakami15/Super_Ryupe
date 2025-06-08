@@ -26,6 +26,7 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 # ジャンプ関連の設定
 @export_group("jump")
 var max_y_velocity: float = 400  # 最大Y速度
+var max_coyote_time: int = 3  # コヨーテタイムの許容しきい値
 var jump_force: float = 335.0  # 初期ジャンプ力
 var min_jump_force: float = 235.0  # 最小ジャンプ力
 var max_jump_time: float = 0.45  # 最大ジャンプ持続時間（秒）
@@ -41,12 +42,13 @@ var jump_time: float = 0.0  # ジャンプボタンを押している時間
 # プレイヤーの移動と状態管理
 var direction: Vector2 = Vector2.ZERO
 var state: PLAYER_STATE = PLAYER_STATE.IDLE  # 現在の状態
+var coyote_time: int = 0
 var player_name = "りゅーぺ"
 
 func _ready() -> void:
 	player_label.text = player_name
 
-# 物理処理のメインループ
+# 物理処理のメインループ（1秒間に60回実行される）
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)  # 重力の適用
 	fallen_off()  # 一定距離落下したらヒット状態に
@@ -61,6 +63,7 @@ func apply_gravity(delta: float):
 	if !is_on_floor():  # 床に触れていない場合
 		velocity.y += GRAVITY * delta
 		velocity.y = min(velocity.y, max_y_velocity)
+		coyote_time += 1
 
 # 一定距離落下したらプレイヤーをヒット状態に
 func fallen_off():
@@ -77,7 +80,8 @@ func get_input(delta: float):
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	
 	# ジャンプの入力処理
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() \
+			or Input.is_action_just_pressed("jump") and coyote_time < max_coyote_time:
 		# ジャンプ開始
 		start_jump()
 	
@@ -96,6 +100,7 @@ func get_input(delta: float):
 func start_jump():
 	is_jumping = true
 	jump_time = 0.0
+	coyote_time = 0
 	# 最小ジャンプ力を即座に適用
 	velocity.y = -min_jump_force
 
@@ -121,6 +126,9 @@ func apply_movement(_delta: float):
 	if is_on_floor() and is_jumping and velocity.y > 0:
 		is_jumping = false
 		jump_time = 0.0
+	
+	if is_on_floor():
+		coyote_time = 0
 	
 	# 横方向の移動
 	if direction.x:
